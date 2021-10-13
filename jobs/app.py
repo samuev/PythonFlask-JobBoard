@@ -1,8 +1,12 @@
 import sqlite3
 import datetime
 from flask import Flask, render_template, g, request, redirect, url_for
+import os
+PROJECT_ROOT = os.path.dirname(os.path.realpath(__file__))
+PATH = os.path.join(PROJECT_ROOT, '..', 'db', 'jobs.sqlite')
 
-PATH = 'db/jobs.sqlite'
+#PATH = os.join('/flask_repo/PythonFlask-JobBoard/db/jobs.sqlite')
+DEBUG = True
 
 app = Flask(__name__)
 
