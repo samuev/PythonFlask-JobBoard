@@ -2,6 +2,7 @@ FROM python:3.8.2-alpine
 
 ENV APP_DIR /src/app/
 WORKDIR /src/app/
+EXPOSE 80
 
 RUN mkdir -p $APP_DIR
 
