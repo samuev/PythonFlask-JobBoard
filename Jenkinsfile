@@ -14,9 +14,9 @@ node {
 
       
     stage('Push Docker Image'){
-        //withCredentials([string(credentialsId: 'DOKCER_HUB_PASSWORD', variable: 'DOKCER_HUB_PASSWORD')]) {
+    
         withCredentials([usernamePassword(credentialsId: 'samuev', passwordVariable: 'DOKCER_HUB_PASSWORD', usernameVariable: 'DOKCER_HUB_USER')]) {   
-            sh "docker login -u samuev -p ${DOKCER_HUB_PASSWORD}"
+            sh "docker login -u ${DOKCER_HUB_USER} -p ${DOKCER_HUB_PASSWORD}"
         }
          sh "docker push samuev/flask_app:latest"
      }
