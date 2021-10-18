@@ -7,11 +7,13 @@ WORKDIR /jobs
 
 #WORKDIR ${APP_DIR}
 
-COPY ./requirements.txt app.py /jobs
+COPY requirements.txt /jobs
 
 RUN pip install -r requirements.txt && \
     rm requirements.txt
-	
+    
+COPY /jobs/app.py /jobs
+
 CMD ["flask", "run"]
 
 #COPY . .
