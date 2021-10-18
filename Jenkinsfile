@@ -1,5 +1,5 @@
 node {
-    //def app
+    def app
 
     stage('Clone repository') {
       
@@ -8,8 +8,8 @@ node {
 
     stage('Build Docker Image') {
   
-       //app = docker.build("samuev/flask_app")
-         sh 'docker build -t samuev/flask_app:latest'
+       app = docker.build("samuev/flask_app")
+       //sh 'docker build -t samuev/flask_app:latest'
     }
 
       
