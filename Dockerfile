@@ -7,7 +7,7 @@ WORKDIR /jobs
 
 #WORKDIR ${APP_DIR}
 
-COPY ./requirements.txt app.py .
+COPY ./requirements.txt app.py /jobs
 
 RUN pip install -r requirements.txt && \
     rm requirements.txt
