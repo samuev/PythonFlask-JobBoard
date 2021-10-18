@@ -1,17 +1,18 @@
-FROM python:3.8.2-alpine
+#FROM python:3.8.2-alpine
+FROM python:3.8.10-alpine3.13
 
-ENV APP_DIR /src/app/
-WORKDIR /src/app/
-EXPOSE 80
+EXPOSE 5000
+#ENV APP_DIR /jobs/app/
+WORKDIR /jobs
 
-RUN mkdir -p $APP_DIR
+#WORKDIR ${APP_DIR}
 
-COPY ./requirements.txt ${APP_DIR}
+COPY requirements.txt jobs/app.py .
 
-WORKDIR ${APP_DIR}
-COPY ./requirements.txt .
-
-RUN ["pip", "install", "-r", "./requirements.txt"]
+RUN pip install -r requirements.txt && \
+    rm requirements.txt
+	
+CMD ["flask", "run"]
 
 #COPY . .
 
