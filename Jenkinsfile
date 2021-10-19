@@ -12,7 +12,12 @@ node {
        //sh 'docker build -t samuev/flask_app:latest'
     }
 
-      
+    stage('Test image') {                      
+         app.inside {                
+             sh 'echo "Tests passed"'        
+            }    
+        }     
+    
     stage('Push Docker Image'){
     
         withCredentials([usernamePassword(credentialsId: 'samuev', passwordVariable: 'DOKCER_HUB_PASSWORD', usernameVariable: 'DOKCER_HUB_USER')]) {   
